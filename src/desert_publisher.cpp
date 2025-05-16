@@ -8,7 +8,7 @@ public:
     DesertPublisher() : Node("desert_publisher")
     {
         //creo pub
-        publisher_ = this -> create_publisher<std_msgs::msg::String>("/bluerov2/cmd_thruster1", 10);
+        publisher_ = this -> create_publisher<std_msgs::msg::String>("/destination", 10);
 
         timer_ = this -> create_wall_timer(
             std::chrono::seconds(3),
@@ -26,7 +26,9 @@ private:
     void publish_data()
     {
         auto message = std_msgs::msg::String();
-        message.data = "ciao";
+        std::string s  = "ciao";
+        
+        message.data = s;
         publisher_ -> publish(message);
         RCLCPP_INFO(this->get_logger(), "Sto pubbliscando: %s", message.data.c_str());
     }

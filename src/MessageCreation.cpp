@@ -1,0 +1,1 @@
+//TODO: classe addetta a creare un messaggio ros2 (Desert.msg) che poi verra mandato alla Compression class per la compressione 

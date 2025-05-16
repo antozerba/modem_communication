@@ -9,7 +9,7 @@ class DesertSubscriber : public rclcpp::Node
     DesertSubscriber() : Node("desert_subscriber")
     {
         subscription_ = this -> create_subscription<std_msgs::msg::String>
-        ("/destination", 10, std::bind(&DesertSubscriber::callback, this, _1));
+        ("/bluerov2/cmd_thruster1", 10, std::bind(&DesertSubscriber::callback, this, _1));
         RCLCPP_INFO(this -> get_logger(), "CREATO SUB");
     }
 
