@@ -8,12 +8,12 @@ public:
     ProvaPublisher() : Node("desert_publisher")
     {
         //creo pub
-        publisher_ = this -> create_publisher<std_msgs::msg::String>("/bluerov2/cmd_thruster1", 10);
+        publisher_ = this -> create_publisher<std_msgs::msg::Float32>("/bluerov2/cmd_thruster1", 10);
 
         timer_ = this -> create_wall_timer(
             std::chrono::seconds(3),
             std::bind(&ProvaPublisher::publish_data, this)
-        )
+        );
     }
 
 private:
@@ -29,7 +29,7 @@ private:
 };
 int main(int argc, char * argv[]){
     setenv("RMW_IMPLEMENTATION", "rmw_desert", 1);
-    setenv("DESERT_PORT", "4000", 1);
+    setenv("DESERT_PORT", "5000", 1);
 
     rclcpp::init(argc, argv);
     rclcpp::spin(std::make_shared<ProvaPublisher>());
