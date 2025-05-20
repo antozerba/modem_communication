@@ -1,5 +1,5 @@
 # modem_communication
-## 📋 Prerequisiti
+## Prerequisiti
 
 Assicurati di aver configurato correttamente l'ambiente ROS 2 e di aver compilato il workspace.
 
@@ -25,3 +25,7 @@ Lanciare il node che pubblica sul topic e viene indirizzato dal mmiddlware rwm_d
 ```bash
 ros2 run modem_communication desert_publisher 
 ```
+```bash
+sudo tcpdump -i any port 5000
+```
+
